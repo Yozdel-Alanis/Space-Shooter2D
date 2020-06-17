@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
+
+
 public class Meteorite : MonoBehaviour
 {
     public float speed = 5f;
+    public float damageAmount = 50;
 
 
     private Rigidbody2D rb;
@@ -16,6 +19,9 @@ public class Meteorite : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Destroy(this.gameObject);
+        Player player = collision.gameObject.GetComponent<Player>();
+        player.Damage(damageAmount);
+
+        Destroy(this.gameObject);
     }
 }
