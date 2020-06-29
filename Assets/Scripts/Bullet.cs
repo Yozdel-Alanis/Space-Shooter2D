@@ -31,6 +31,17 @@ public class Bullet : MonoBehaviour
                 Destroy(this.gameObject);
             }
 
+        } else if (collision.gameObject.CompareTag("Enemigo"))
+        {
+            Enemy enemigo = collision.gameObject.GetComponent<Enemy>();
+
+            if (enemigo != null)
+            {
+                FindObjectOfType<Score>().AddPoints(10);
+
+                Destroy(collision.gameObject);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
