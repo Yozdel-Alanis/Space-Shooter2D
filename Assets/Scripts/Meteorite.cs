@@ -19,9 +19,15 @@ public class Meteorite : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        player.Damage(damageAmount);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
 
-        Destroy(this.gameObject);
+            if (player != null)
+            {
+                player.Damage(damageAmount);
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

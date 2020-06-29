@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject[] prefabs;
 
     private void Start()
     {
@@ -15,6 +15,9 @@ public class Spawner : MonoBehaviour
         Vector3 position = new Vector3(0f, 0f, 0f);
         position.y = Random.Range(3f, 4f);
         position.x = Random.Range(-6f, 6f);
-        Instantiate(prefab, position, Quaternion.identity);
+
+        int random = Random.Range(0, prefabs.Length);
+
+        Instantiate(prefabs[random], position, Quaternion.identity);
     }
 }
