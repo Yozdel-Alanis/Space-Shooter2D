@@ -15,9 +15,10 @@ public class Enemy : MonoBehaviour
     private float currentHP;
     private float timeOfLastShoot;
 
-    public float speed = 20f;
+    public float speed = 5f;
     public float damageAmount = 10f;
 
+    public GameObject hitParticleEnemy;
 
     private Rigidbody2D rb;
 
@@ -62,9 +63,12 @@ public class Enemy : MonoBehaviour
             if (player != null)
             {
                 player.Damage(damageAmount);
-                Destroy(this.gameObject);
             }
         }
+
+        GameObject particles = Instantiate(hitParticleEnemy, transform.position, transform.rotation);
+        Destroy(particles, 2f);
+        Destroy(this.gameObject);
     }
 
 }

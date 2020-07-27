@@ -94,7 +94,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8507078187995412856}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -149,8 +149,10 @@ MonoBehaviour:
   timeBetweenShoots: 0.5
   EBulletPrefab: {fileID: 8507078189373085831}
   EBulletOrigin: {fileID: 8507078188507895745}
-  speed: 10
+  speed: 5
   damageAmount: 20
+  hitParticleEnemy: {fileID: 7076336176870724004, guid: 4a1221dfbf2be174ab20174cda20f20d,
+    type: 3}
 --- !u!1 &8507078188507895744
 GameObject:
   m_ObjectHideFlags: 0

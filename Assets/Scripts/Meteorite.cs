@@ -7,6 +7,7 @@ public class Meteorite : MonoBehaviour
     public float speed = 5f;
     public float damageAmount = 50;
 
+    public GameObject particlePrefab;
 
     private Rigidbody2D rb;
 
@@ -26,8 +27,16 @@ public class Meteorite : MonoBehaviour
             if (player != null)
             {
                 player.Damage(damageAmount);
-                Destroy(this.gameObject);
+                DestroyMeteorite();
             }
         }
+    }
+
+    public void DestroyMeteorite()
+    {
+        GameObject particles = Instantiate(particlePrefab, transform.position, transform.rotation);
+        Destroy(particles, 2f);
+        Destroy(this.gameObject);
+
     }
 }

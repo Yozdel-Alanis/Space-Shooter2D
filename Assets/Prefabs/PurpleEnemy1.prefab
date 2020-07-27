@@ -58,14 +58,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318286280177491647}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 335617298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &2680279650713837531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318286280177491647}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -178,10 +178,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   timeBetweenShoots: 0.5
-  EBulletPrefab: {fileID: 0}
-  EBulletOrigin: {fileID: 0}
-  speed: 20
+  EBulletPrefab: {fileID: 7676843236887228957, guid: 99d43aff534642141bfdc53922ee1a36,
+    type: 3}
+  EBulletOrigin: {fileID: 335617298}
+  speed: 10
   damageAmount: 10
+  hitParticleEnemy: {fileID: 7076336176870724004, guid: 4a1221dfbf2be174ab20174cda20f20d,
+    type: 3}
 --- !u!1001 &566755391
 PrefabInstance:
   m_ObjectHideFlags: 0
