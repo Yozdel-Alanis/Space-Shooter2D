@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
 
     public GameObject deathParticlePrefab;
 
+    public AudioClip shootAudioClip;
+    public AudioClip explotionAudioClip;
+
 
     private void Start()
     {
@@ -45,6 +48,8 @@ public class Player : MonoBehaviour
 
         if(currentHP <= 0f)
         {
+            AudioSource.PlayClipAtPoint(explotionAudioClip, transform.position, 5f);
+
             Instantiate(deathParticlePrefab, transform.position, transform.rotation);
             Debug.Log("Game Over");
             Destroy(this.gameObject);
@@ -53,8 +58,10 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject particles = Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
-        Destroy(particles, 2f);
+        GameObject bullet = Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
+        Destroy(bullet, 2f);
         timeOfLastShoot = Time.time;
+
+        AudioSource.PlayClipAtPoint(shootAudioClip, transform.position, 1f);
     }
 }

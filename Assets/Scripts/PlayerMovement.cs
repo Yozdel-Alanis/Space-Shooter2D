@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        SpriteRenderer render = GetComponent<SpriteRenderer>();
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
 
         Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(Vector3.zero);
         bottomLimit = bottomLeft.y;
@@ -30,19 +30,19 @@ public class PlayerMovement : MonoBehaviour
         topLimit = topRight.y;
         rightLimit = topRight.x;
 
-        bottomLimit += render.bounds.extents.y;
-        topLimit += render.bounds.extents.y;
-        leftLimit += render.bounds.extents.y;
-        rightLimit += render.bounds.extents.y;
+        bottomLimit += renderer.bounds.extents.y;
+        topLimit += renderer.bounds.extents.y;
+        leftLimit += renderer.bounds.extents.x;
+        rightLimit += renderer.bounds.extents.x;
     }
     private void Update()
     {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
 
-        //transform.position += new Vector3(x, y, 0f) * speed * Time.deltaTime;
+        transform.position += new Vector3(x, y, 0f) * speed * Time.deltaTime;
 
-        //rb.velocity = new Vector2(x, y) * speed;
+        rb.velocity = new Vector2(x, y) * speed;
     }
 
     private void FixedUpdate()
