@@ -188,7 +188,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8402970689181397014, guid: 3535b8a9cf02b374491261ffe38028f9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e990ec4143728c4989421f9384bdfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!114 &650284278735494874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,13 +248,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  timeBetweenShoots: 0.5
+  timeBetweenShoots: 0.2
   bulletPrefab: {fileID: 7534983142495094808, guid: a8d8ae130d5e48441baec78abdf7c638,
     type: 3}
   bulletOrigin: {fileID: 481626787}
   HP: {fileID: 0}
   deathParticlePrefab: {fileID: 952172718532939437, guid: 6e96c86aae82e064eb9562d766a271b0,
     type: 3}
+  shootAudioClip: {fileID: 8300000, guid: 1c1bed3080c2bca4ea1115177e7c35e3, type: 3}
+  explotionAudioClip: {fileID: 8300000, guid: e90650eb2d1f53848ac4ab54d3d8e517, type: 3}
 --- !u!60 &6842495638782439451
 PolygonCollider2D:
   m_ObjectHideFlags: 0

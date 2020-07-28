@@ -48,11 +48,7 @@ public class Player : MonoBehaviour
 
         if(currentHP <= 0f)
         {
-            AudioSource.PlayClipAtPoint(explotionAudioClip, transform.position, 5f);
-
-            Instantiate(deathParticlePrefab, transform.position, transform.rotation);
-            Debug.Log("Game Over");
-            Destroy(this.gameObject);
+            Dead();
         }
     }
 
@@ -63,5 +59,16 @@ public class Player : MonoBehaviour
         timeOfLastShoot = Time.time;
 
         AudioSource.PlayClipAtPoint(shootAudioClip, transform.position, 1f);
+    }
+
+    private void Dead()
+    {
+        AudioSource.PlayClipAtPoint(explotionAudioClip, transform.position, 5f);
+
+        Instantiate(deathParticlePrefab, transform.position, transform.rotation);
+
+        FindObjectOfType<GameManager>().GameOver();
+
+        Destroy(this.gameObject);
     }
 }

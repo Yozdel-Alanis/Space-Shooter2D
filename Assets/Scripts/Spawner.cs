@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
     {
 
         float x = Random.Range(leftLimit, rightLimit);
-        Vector3 position = new Vector3(x, topLimit + 3f, 0f);
+        Vector3 position = new Vector3(x, topLimit + 1f, 0f);
         //position.y = Random.Range(3f, 4f);
         //position.x = Random.Range(-6f, 6f);
 

@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         rb.velocity = Vector2.up * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Meteorite"))
         {
@@ -30,6 +30,11 @@ public class Bullet : MonoBehaviour
                 FindObjectOfType<Score>().AddPoints(10);
 
                 meteorite.DestroyMeteorite();
+
+
+                GameObject particles = Instantiate(hitParticleBP, transform.position, transform.rotation);
+                Destroy(particles, 2f);
+                Destroy(this.gameObject);
             }
         }
         else if (collision.gameObject.CompareTag("Enemigo"))
@@ -38,16 +43,16 @@ public class Bullet : MonoBehaviour
 
             if (enemigo != null)
             {
-                FindObjectOfType<Score>().AddPoints(10);
+                FindObjectOfType<Score>().AddPoints(20);
 
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject);
+
+
+                GameObject particles = Instantiate(hitParticleBP, transform.position, transform.rotation);
+                Destroy(particles, 2f);
+                Destroy(this.gameObject);
             }
-
-            GameObject particles = Instantiate(hitParticleBP, transform.position, transform.rotation);
-            Destroy(particles, 2f);
-            Destroy(this.gameObject);
         }
-
     }
 }
